@@ -1,0 +1,54 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: user-center
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: chao0123
+    url: jdbc:mysql://120.55.88.253:3306/satellite?userSSL=false&serverTimezone=Asia/Shanghai
+    hikari:
+      minimum-idle: 3
+      maximum-pool-size: 10
+      max-lifetime: 30000
+
+
+  # session失效时间 one day (minutes)
+  session:
+    timeout: 86400
+    store-type: redis
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  # redis 配置
+  redis:
+    port: 6379
+    host: 120.55.88.253
+    database: 0
+    password: chao0123
+
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+    session:
+      cookie:
+        domain: localhost
+        same-site: none
+        secure: true
+  address: 0.0.0.0
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: isDelete # 全局逻辑删除字段名
+      logic-delete-value: 1 # 逻辑已删除值
+      logic-not-delete-value: 0 # 逻辑未删除值

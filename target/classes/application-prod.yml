@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: chao0123
+    url: jdbc:mysql://120.55.88.253:3306/satellite?userSSL=false&serverTimezone=Asia/Shanghai
+    hikari:
+      minimum-idle: 3
+      maximum-pool-size: 10
+      max-lifetime: 30000
+  # session失效时间 one day
+  session:
+    timeout: 86400
+server:
+  address: 0.0.0.0
